@@ -1,0 +1,10 @@
+
+
+        (Password, Email) -> Boolean
+
+
+
+        time -> Cost
+        time -> Volume
+        (Volume, Cost) -> Expenditure
+        time -> Expenditure

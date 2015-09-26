@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.Iterator;
 
+import com.google.common.collect.FluentIterable;
 import org.junit.Test;
 
 import com.google.common.base.Function;
@@ -33,6 +34,14 @@ public class PrettierLazyIteration {
   @Test
   public void functionalStyleWithFluentInterface() throws IOException {
     final RandomAccessFile br = new RandomAccessFile("pretendLogFile.txt", "r");
+
+    FluentIterable.from(new RandomFileIterable(br))
+            .filter(STARTS_WITH_BUG_PREDICATE)
+            .transform(TRANSFORM_BUG_LINE_FUNCTION)
+            .limit(40)
+            .toList()
+            .forEach(this::report);
+
 
     for (String s : take(new RandomFileIterable(br))    // how to get the lines
         .filterBy(STARTS_WITH_BUG_PREDICATE)            // which lines to choose

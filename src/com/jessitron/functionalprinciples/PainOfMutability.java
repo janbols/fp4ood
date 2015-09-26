@@ -5,7 +5,7 @@ import org.biojava3.core.sequence.*;
 public class PainOfMutability {
 
     public static void main(String[] args) throws Exception {
-        ChromosomeSequence ctgctgaacgtatcgat = new ChromosomeSequence("CTGCTGAACGTATCGAT");
+        ctgctgaacgtatcgat = new ChromosomeSequence("CTGCTGAACGTATCGAT");
 
         GeneSequence geneSequence = new GeneSequence(ctgctgaacgtatcgat, 1, 10, Strand.POSITIVE);
 
